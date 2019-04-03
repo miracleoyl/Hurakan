@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <div class="login">
-        <div>
+        <div id='pageheader'>
             <HEADER msg="this is from header.vue" v-bind:isShow ='false'/>
         </div>
         <div>
             <LOGIN/>
         </div>
-        <div>
+        <div id='pagefooter'>
             <FOOTER/>
         </div>
     </div>
