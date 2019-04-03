@@ -1,21 +1,19 @@
 <template>
-    <div class="log-email">
+<div class="log-email">
      <div class="col">
       <div class="card">
          <div class="card-body">
               <h3 class="card-title text-muted">Log in</h3>
-              <form method="post" novalidate="">
-                    <input type="hidden"  name="csrfmiddlewaretoken" value="iCTXgZtfdJDBqjfLgf460SsUwY3VpK5xhE7KWnKxXkd8Yi9HUyffvp0ywnLaCaNI">
-                    <input type="hidden" name="next" value="">          
+              <form>
                     <div class="form-group text-muted">
                         <label for="id_username">Username:</label>
-                        <input type="text" name="username" placeholder="Email" autofocus="" class="form-control " required="" id="id_username">
+                        <input type="text" name="username" placeholder="Email" v-model="input.username"  class="form-control " required>
                     </div>
                     <div class="form-group text-muted">
                         <label for="id_password">Password:</label>
-                        <input type="password" placeholder="Password" name="password" class="form-control " required="" id="id_password">
+                        <input type="password" placeholder="Password" name="password" v-model="input.password" class="form-control " required>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block" @click="submitLogin">Log in</button>
+                    <button type="submit" class="btn btn-primary btn-block" @click="submitLogin()">Log in</button>
               </form>
          </div>
          <div class="card-footer text-muted text-center">
@@ -28,55 +26,67 @@
         </small>
       </div>
      </div>
-    </div>
+</div>
 </template>
 
 <script>
   export default {
-    name:'login',
-    components: {
-    },
+    name: 'login',
     data () {
       return {
+        input: {
+          username: "",
+          password: ""
+        }
       };
     },
     methods: {
       submitLogin () {
-          this.$router.push('/user/');
-      }
+      if(this.input.username != "" && this.input.password != "") {
+        if(this.input.username == this.$parent.$parent.mockAccount.username && this.input.password == this.$parent.$parent.mockAccount.password) {
+            this.$emit("authenticated", true);
+            this.$router.replace({ name: "user" });
+            //this.$router.push('/user/');
+          } else {
+            alert("The username and / or password is incorrect");
+          }
+        } else {
+           alert("please enter the username and password");
+          } 
+       }
     }
-  };
+  }
 </script>
 
 <style scoped>
 
-  .text {
-    font-size: 14px;
-  }
+.text {
+  font-size: 14px;
+}
 
-  .item {
-    margin-bottom: 18px;
-  }
+.item {
+  margin-bottom: 18px;
+}
 
-  .log-email {
-    top: 300px;
-    left: 70%;
-    position: relative;;
-  }
+.log-email {
+top: 300px;
+left: 70%;
+position: relative;;
+}
 
 .col {
-    max-width: 15%;
+max-width: 15%;
 }
 .card {
-    position: relative;
-    word-wrap: break-word;
-    background-clip: border-box;
+  position: relative;
+  word-wrap: break-word;
+  background-clip: border-box;
 }
 .card-body {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    padding: 1.25rem;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
 }
 
 h3 {

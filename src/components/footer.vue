@@ -10,6 +10,8 @@ export default {
   props: {
   },
   data: function () {
+    return {
+    }
   },
   computed: {
 

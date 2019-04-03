@@ -9,11 +9,11 @@
       <swiper-slide><img src="@/assets/images/2.png" class ='imgstyle'></swiper-slide>
       <swiper-slide><img src="@/assets/images/3.png" class ='imgstyle'></swiper-slide>
       <swiper-slide><img src="@/assets/images/4.png" class ='imgstyle'></swiper-slide>
-      <swiper-slide><img src="@/assets/images/5.png" class ='imgstyle'></swiper-slide> 
-      <div class="swiper-scrollbar"></div> 
-      <div class="swiper-button-next"></div> 
-      <div class="swiper-button-prev"></div> 
-      <div class="swiper-pagination"></div> 
+      <swiper-slide><img src="@/assets/images/5.png" class ='imgstyle'></swiper-slide>
+      <div class="swiper-scrollbar"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
     </swiper>
     <div id="pagefooter">
       <FOOTER/>
@@ -23,13 +23,13 @@
 
 <script>
 // @ is an alias to /src
-import Vue from "vue"
+import Vue from 'vue'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
-Vue.use(VueAwesomeSwiper, /* { default global options } */)
 import HEADER from '@/components/header.vue'
 import FOOTER from '@/components/footer.vue'
 import Navigation from '@/components/navigation.vue'
+Vue.use(VueAwesomeSwiper /* { default global options } */)
 
 export default {
   name: 'home',
@@ -41,21 +41,19 @@ export default {
   data: function () {
     return {
       inputData: {
-        a:12,
-        b:15
       },
-      swiperOption: { 
+      swiperOption: {
         autoplay: true,
         speed: 1000,
-        loop:true,
-        autoheight:true,
-        autowidth:true,
+        loop: true,
+        autoheight: true,
+        autowidth: true,
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
         }
       }
-    }  
+    }
   }
 }
 </script>

@@ -1,16 +1,32 @@
 <template>
   <div id="app">
-    <router-view/>  <!--  load content from router.js  -->
+    <router-view @authenticated="setAuthenticated"/>  <!--  load content from router.js  -->
   </div>
-  
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
-  data: function () {
+  data() {
     return {
+      authenticated: false,
+      mockAccount: {
+      username: "mouyang",
+      password: "pwd"
+      }
+    }
+  },
+  //When the application mounts, we can do some checks:
+  // mounted() {
+  //   if(!this.authenticated) {
+  //       this.$router.replace({ name: "login" });
+  //     }
+  //   },
+  methods: {
+    setAuthenticated(status) {
+    this.authenticated = status;
+    },
+    logout() {
+    this.authenticated = false;
     }
   }
 }

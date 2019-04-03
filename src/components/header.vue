@@ -1,10 +1,10 @@
 <template>
   <div class='el-header'>
-       <img class="logoimg" alt="logo failed to load" src="@/assets/images/Brand.jpg" title="飓风人工智能"/>
-       <h1 class='compmsg'>{{msg}}</h1>
-       <router-link class='loginbtn' to="/login" tag='button' title='click to login' v-show= 'isShow' >
-             <button @click="showButton">Login </button>
-       </router-link>
+    <img class="logoimg" alt="logo failed to load" src="@/assets/images/Brand.jpg" title="飓风人工智能"/>
+    <h1 class='compmsg'>{{msg}}</h1>
+    <router-link class='loginbtn' to="/login" tag='button' title='click to login' v-show= 'isShow' >
+    <button @click="showButton">Login </button>
+    </router-link>
   </div>
 </template>
 
@@ -13,14 +13,14 @@
 export default {
   name: 'pageheader',
   props: {
-      msg: {
-          type: String,
-          default: "default value for msg!"
-      },
-      isShow: {
-          type: Boolean,
-          default: 'true'
-      }
+    msg: {
+    type: String,
+    default: "default value for msg!"
+    },
+    isShow: {
+    type: Boolean,
+    default: 'true'
+    }
   },
   data: function () {
     return {
@@ -31,9 +31,9 @@ export default {
 
   },
   methods: {
-      showButton:function(){
-				this.isShow = !this.isShow
-			}
+    showButton:function(){
+	this.isShow = !this.isShow
+	}
   }
 }
 

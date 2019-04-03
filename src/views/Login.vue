@@ -1,18 +1,17 @@
 <template>
   <div id="app">
     <div class="login">
-        <div id="pageheader">
+        <div>
             <HEADER msg="this is from header.vue" v-bind:isShow ='false'/>
         </div>
         <div>
             <LOGIN/>
         </div>
-        <div id="pagefooter">
+        <div>
             <FOOTER/>
         </div>
     </div>
   </div>
-  
 </template>
 
 <script>
@@ -29,7 +28,6 @@ export default {
   },
   data: function () {
     return {
-  
     }
   }
 }
