@@ -16,7 +16,7 @@
 
 <script>
 // @ is an alias to /src
-import LOGIN from '@/components/login/login.vue'
+import LOGIN from '@/components/login.vue'
 import HEADER from '@/components/header.vue'
 import FOOTER from '@/components/footer.vue'
 

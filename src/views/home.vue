@@ -6,10 +6,13 @@
     <Navigation msg="This is from navigation.vue" v-bind:xdata="inputData"/>  <!-- can use :xdata as well.   :  =equals v-bind -->
     <swiper :options="swiperOption" class="swiperContent">
       <swiper-slide><img src="@/assets/images/1.jpg" class ='imgstyle'></swiper-slide>
-      <swiper-slide><img src="@/assets/images/2.png" class ='imgstyle'></swiper-slide>
-      <swiper-slide><img src="@/assets/images/3.png" class ='imgstyle'></swiper-slide>
-      <swiper-slide><img src="@/assets/images/4.png" class ='imgstyle'></swiper-slide>
-      <swiper-slide><img src="@/assets/images/5.png" class ='imgstyle'></swiper-slide>
+      <swiper-slide><img src="@/assets/images/2.jpg" class ='imgstyle'></swiper-slide>
+      <swiper-slide><img src="@/assets/images/3.jpg" class ='imgstyle'></swiper-slide>
+      <swiper-slide><img src="@/assets/images/4.jpg" class ='imgstyle'></swiper-slide>
+      <swiper-slide><img src="@/assets/images/5.jpg" class ='imgstyle'></swiper-slide>
+      <swiper-slide><img src="@/assets/images/6.jpg" class ='imgstyle'></swiper-slide>
+      <swiper-slide><img src="@/assets/images/7.jpg" class ='imgstyle'></swiper-slide>
+      <swiper-slide><img src="@/assets/images/8.jpg" class ='imgstyle'></swiper-slide>
       <div class="swiper-scrollbar"></div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
@@ -28,15 +31,13 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 import HEADER from '@/components/header.vue'
 import FOOTER from '@/components/footer.vue'
-import Navigation from '@/components/navigation.vue'
 Vue.use(VueAwesomeSwiper /* { default global options } */)
 
 export default {
   name: 'home',
   components: {
     HEADER,
-    FOOTER,
-    Navigation
+    FOOTER
   },
   data: function () {
     return {

@@ -5,6 +5,7 @@ import LoginPage from '@/views/Login.vue'
 import UserPage from '@/views/User.vue'
 import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/en'
+import Dashboard from "@/components/dashboard"
 
 Vue.use(ElementUI, { locale })
 Vue.use(Router)
@@ -36,6 +37,11 @@ export default new Router({
       path: '/user',
       name: 'user',
       component: UserPage
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard
     }
   ]
 })

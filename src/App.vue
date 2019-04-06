@@ -1,39 +1,32 @@
 <template>
   <div id="app">
-    <router-view @authenticated="setAuthenticated"/>  <!--  load content from router.js  -->
+    <router-view/>
+    <div>
+      <router-link :to="{ name: 'Dashboard'}">Dashboard</router-link>
+      <router-link :to="{ name: 'Login'}">Login</router-link>
+      <a href="#" v-on:click="logout">Logout</a>
+    </div>
+    <router-view/>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-  data() {
-    return {
-      authenticated: false,
-      mockAccount: {
-      username: "mouyang",
-      password: "pwd"
-      }
-    }
-  },
-  //When the application mounts, we can do some checks:
-  // mounted() {
-  //   if(!this.authenticated) {
-  //       this.$router.replace({ name: "login" });
-  //     }
-  //   },
+  name: 'App',
   methods: {
-    setAuthenticated(status) {
-    this.authenticated = status;
-    },
-    logout() {
-    this.authenticated = false;
+    logout: function (e) {
+      axios.get('/api/logout')
+        .then(() => {
+          this.$router.push('/')
+        })
     }
   }
 }
 </script>
 
-<style lang="scss">
-body {
+<style>
+.body {
   padding: 0px;
   margin: 0px;
   height: 100%;

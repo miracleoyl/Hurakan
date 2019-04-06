@@ -4,8 +4,8 @@
             <HEADER msg="this is from header.vue" v-bind:isShow ='false'/>
         </div>
         <div>
-            <!-- <table-comp/> -->
-            <FILEUPLOAD/>
+        </div>
+        <div>
         </div>
         <div>
             <FOOTER/>
@@ -14,28 +14,23 @@
 </template>
 
 <script>
-  import tableComp from '@/components/userTable.vue';
-  import HEADER from '@/components/header.vue'
-  import FOOTER from '@/components/footer.vue'
-  import FILEUPLOAD from '@/components/fileupload.vue'
-  export default {
-    name: "user",
-    data () {
-      return {
-  
-        }
-    },
-    components: {
-      tableComp,
-      HEADER,
-      FOOTER,
-      FILEUPLOAD
-    },
-    methods: {
-    },
-  };
+import HEADER from '@/components/header.vue'
+import FOOTER from '@/components/footer.vue'
+// import axios from 'axios'
+export default {
+  name: 'user',
+  data () {
+    return {
+    }
+  },
+  components: {
+    HEADER,
+    FOOTER
+  },
+  methods: {
+  }
+}
 </script>
 
 <style scoped>
-
 </style>

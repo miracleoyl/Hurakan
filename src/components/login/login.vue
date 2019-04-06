@@ -14,6 +14,15 @@
                         <input type="password" placeholder="Password" name="password" v-model="input.password" class="form-control " required>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block" @click="submitLogin()">Log in</button>
+                    
+                     <div>
+                  <h2>Login</h2>
+                  <form v-on:submit="login">
+                  <input type="text" name="email" /><br>
+                  <input type="password" name="password" /><br>    
+                  <input type="submit" value="Login" />    
+        </form>    
+    </div>   
               </form>
          </div>
          <div class="card-footer text-muted text-center">
@@ -30,6 +39,7 @@
 </template>
 
 <script>
+  import axios from "axios"
   export default {
     name: 'login',
     data () {
@@ -53,7 +63,27 @@
         } else {
            alert("please enter the username and password");
           } 
-       }
+       },
+       login: (e) => {    
+                e.preventDefault()    
+                let email = e.target.elements.email.value
+                let password = e.target.elements.password.value
+                let login = () => {    
+                    let data = {    
+                        email: email,    
+                        password: password    
+                    }    
+                    axios.post("/api/login", data)    
+                        .then((response) => {    
+                            console.log("Logged in")    
+                            this.$router.push("/dashboard")    
+                        })    
+                        .catch((errors) => {    
+                            console.log("Cannot log due to post failure")    
+                        })    
+                }    
+                login()    
+        }    
     }
   }
 </script>

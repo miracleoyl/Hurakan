@@ -28,6 +28,7 @@
           <i class="fa fa-plus"></i>
           Select files
         </file-upload>
+        <input type="file" value="" id="file" @change="uploadConfig">
         <button type="button" class="btn btn-success" v-if="!$refs.upload || !$refs.upload.active" @click.prevent="$refs.upload.active = true">
           <i class="fa fa-arrow-up" aria-hidden="true"></i>
           Start Upload
@@ -40,12 +41,6 @@
     </div>
   </div>
 </template>
-<style>
-.example-simple label.btn {
-  margin-bottom: 0;
-  margin-right: 1rem;
-}
-</style>
 
 <script>
 import FileUpload from 'vue-upload-component'
@@ -89,6 +84,24 @@ export default {
         console.log('remove', oldFile)
       }
     }
-  }
+  },
+  uploadConfig(e) {
+        let formData = new FormData();
+        formData.append('file', e.target.files[0]);
+        let url = this.$store.state.path + "api/tools/handle_upload_file";
+        let config = {
+          headers:{'Content-Type':'multipart/form-data'}
+        };
+        this.$axios.post(url,formData, config).then(function (response) {
+          console.log(response.data)
+        })
+    },
 }
 </script>
+
+<style>
+.example-simple label.btn {
+  margin-bottom: 0;
+  margin-right: 1rem;
+}
+</style>

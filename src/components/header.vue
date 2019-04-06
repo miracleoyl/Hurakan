@@ -14,29 +14,27 @@ export default {
   name: 'pageheader',
   props: {
     msg: {
-    type: String,
-    default: "default value for msg!"
+      type: String,
+      default: 'default value for msg!'
     },
     isShow: {
-    type: Boolean,
-    default: 'true'
+      type: Boolean,
+      default: true
     }
   },
   data: function () {
     return {
-        
-    };
+    }
   },
   computed: {
 
   },
   methods: {
-    showButton:function(){
-	this.isShow = !this.isShow
-	}
+    showButton: function () {
+      this.isShow = !this.isShow
+    }
   }
 }
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
