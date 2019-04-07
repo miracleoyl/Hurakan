@@ -2,14 +2,15 @@
   <div class='el-header'>
     <img class="logoimg" alt="logo failed to load" src="@/assets/images/Brand.jpg" title="飓风人工智能"/>
     <h1 class='compmsg'>{{msg}}</h1>
-    <router-link class='loginbtn' to="/login" tag='button' title='click to login' v-show= 'isShow' >
-    <button @click="showButton">Login </button>
-    </router-link>
+    <div class ='loginbtn'>
+      <router-link to="/login" tag='button' title='click to login' v-show= 'isShow' >
+        <button @click="showButton">Login </button>
+      </router-link>
+    </div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'pageheader',
   props: {
@@ -65,5 +66,4 @@ export default {
     text-align: center;
     top: 50%;
 }
-
 </style>

@@ -5,7 +5,7 @@
             <HEADER msg="this is from header.vue" v-bind:isShow ='false'/>
         </div>
         <div>
-            <LOGIN/>
+          <LOGIN/>
         </div>
         <div id='pagefooter'>
             <FOOTER/>
@@ -19,7 +19,6 @@
 import LOGIN from '@/components/login.vue'
 import HEADER from '@/components/header.vue'
 import FOOTER from '@/components/footer.vue'
-
 export default {
   components: {
     HEADER,

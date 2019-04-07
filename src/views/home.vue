@@ -3,7 +3,6 @@
     <div id="pageheader">
       <HEADER msg="this is from header.vue" v-bind:isShow ='true'/>
     </div>
-    <Navigation msg="This is from navigation.vue" v-bind:xdata="inputData"/>  <!-- can use :xdata as well.   :  =equals v-bind -->
     <swiper :options="swiperOption" class="swiperContent">
       <swiper-slide><img src="@/assets/images/1.jpg" class ='imgstyle'></swiper-slide>
       <swiper-slide><img src="@/assets/images/2.jpg" class ='imgstyle'></swiper-slide>
