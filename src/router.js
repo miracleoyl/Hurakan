@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Dashboard from '@/components/dashboard'
 import Home from '@/views/home.vue'
 import LoginPage from '@/views/Login.vue'
-import UserPage from '@/views/User.vue'
+import FileManager from '@/views/FileManager.vue'
 
 Vue.use(Router)
 
@@ -27,9 +27,9 @@ export default new Router({
       component: LoginPage
     },
     {
-      path: '/user',
-      name: 'user',
-      component: UserPage
+      path: '/filemanager',
+      name: 'filemanager',
+      component: FileManager
     }
   ]
 })

@@ -1,4 +1,4 @@
-<template>  
+<template>
   <div>
     <div>
       <a>{{ file.name }}</a>
@@ -7,25 +7,24 @@
   </div>
 </template>
 
-<script>  
-import axios from "axios"
-import FileDownloader from './filedownload' 
-export default {  
-  props: ["file"],
+<script>
+import FileDownloader from './filedownload'
+export default {
+  props: ['file'],
   components: {
-      FileDownloader
+    FileDownloader
   },
-  data() {
+  data () {
     return {
-        downloadKey: 1
-    };
+      downloadKey: 1
+    }
   },
-  name: "UploadedFile",
+  name: 'UploadedFile',
   methods: {
 
   }
-};
+}
 </script>
 
-<style scoped>  
-</style>  
+<style scoped>
+</style>

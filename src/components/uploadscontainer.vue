@@ -1,4 +1,4 @@
-<template>  
+<template>
   <div class="uploadcontainer">
     <h1>Uploader</h1>
     <div>
@@ -12,82 +12,81 @@
       <p v-show="uploadStarted">Uploading...</p>
     </div>
     <div>
-      <button v-show="!uploadStarted" v-on:click="startUpload">Start Upload</button>      
+      <button v-show="!uploadStarted" v-on:click="startUpload">Start Upload</button>
       <button v-show="uploadStarted" v-on:click="cancelUpload">Cancel Upload</button>
     </div>
   </div>
 </template>
 
-<script>  
-import axios from "axios";  
-const CancelToken = axios.CancelToken;  
-const source = CancelToken.source();
+<script>
+import axios from 'axios'
+const CancelToken = axios.CancelToken
+const source = CancelToken.source()
 
-export default {  
-  name: "Main",
-  data() {
+export default {
+  name: 'Main',
+  data () {
     return {
       uploadStarted: false,
-      uploadName: "files",
-      uploadUrl: "/api/upload",
+      uploadName: 'files',
+      uploadUrl: '/api/upload',
       formData: null
-    };
+    }
   },
 
   methods: {
-    fileSelected(event) {
+    fileSelected (event) {
       if (event.target.files.length === 0) {
-        return;
+        return
       }
 
-      let files = event.target.files;
-      let name = event.target.name;
-      let formData = new FormData();
+      let files = event.target.files
+      let name = event.target.name
+
+      let formDatatemp = new FormData()
 
       for (let index = 0; index < files.length; index++) {
-        formData.append(name, files[index], files[index].name);
+        formDatatemp.append(name, files[index], files[index].name)
       }
-      this.$set(this, "formData", formData);
+      this.$set(this, 'formData', formDatatemp)
     },
-    startUpload() {
-      this.$set(this, "uploadStarted", true);
-      this.uploadData(this.formData);
+    startUpload () {
+      this.$set(this, 'uploadStarted', true)
+      this.uploadData(this.formData)
     },
-    cancelUpload() {
+    cancelUpload () {
       if (this.uploadStarted) {
-        source.cancel();
+        source.cancel()
       }
-      this.$set(this, "uploadStarted", false);
+      this.$set(this, 'uploadStarted', false)
     },
-    uploadData(formData) {
+    uploadData (formData) {
       if (this.formData === null) {
-        return;
+        return
       }
-      axios
-        .post(this.uploadUrl, formData, {
-          cancelToken: source.token
-        })
-        .then(response => {
-          if (response.data.length === 0) {
-            alert("File not uploaded. Please check the file types");
-            return;
-          }
-          this.updateFilesList(response.data);
-          this.$set(this, "formData", null);
-        })
+      axios.post(this.uploadUrl, formData, {
+        cancelToken: source.token
+      }).then(response => {
+        if (response.data.length === 0) {
+          alert('File not uploaded. Please check the file types')
+          return
+        }
+        this.updateFilesList(response.data)
+        this.$set(this, 'formData', null)
+      })
         .catch(() => {
-          alert("Error occured");
+          alert('Error occured')
         })
         .then(() => {
-          this.$set(this, "uploadStarted", false);
-        });
+          this.$set(this, 'uploadStarted', false)
+        })
     },
-    updateFilesList(files) {
-      this.$emit("files-uploaded", files);
+    updateFilesList (files) {
+      this.$emit('filesuploaded', files)
     }
   }
-};
+}
 </script>
 
-<style scoped>  
-</style>  
+<style scoped>
+</style>

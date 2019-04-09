@@ -1,18 +1,18 @@
-<template>  
+<template>
   <iframe v-bind:src="source"></iframe>
 </template>
 
-<script>  
-export default {  
-  data() {
+<script>
+export default {
+  data () {
     return {
-      source: ""
-    };
+      source: ''
+    }
   },
   methods: {
-    downloadFile(source) {
-      this.$set(this, "source", source);
+    downloadFile (source) {
+      this.$set(this, 'source', source)
     }
   }
-};
-</script>  
+}
+</script>

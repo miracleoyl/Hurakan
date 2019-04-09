@@ -1,6 +1,6 @@
 <template>
   <div class='el-footer'>
-       <P>This is footer from footer.vue</P>
+       <P style="text-align:center">Copyright@飓风人工智能有限公司</P>
   </div>
 </template>
 
