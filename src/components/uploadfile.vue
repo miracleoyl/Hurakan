@@ -1,7 +1,8 @@
 <template>
   <div>
     <div>
-      <a>{{ file.name }}</a>
+      <FileDownloader :key="downloadKey" ref='downloader'></FileDownloader>
+      <a v-bind:href="'/file/download/' + file.encodedName" v-on:click="downloadFile">{{ file.name }}</a>
       <button>Delete</button>
     </div>
   </div>
@@ -21,7 +22,14 @@ export default {
   },
   name: 'UploadedFile',
   methods: {
-
+    downloadFile (event) {
+      event.preventDefault()
+      let url = event.target.href
+      this.downloadKey += 1
+      this.$nextTick().then(() => {
+        this.$refs.downloader.downloadFile(url)
+      })
+    }
   }
 }
 </script>

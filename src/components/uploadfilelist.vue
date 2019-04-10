@@ -28,9 +28,8 @@ export default {
   methods: {
     fetchFiles () {
       axios.get('/api/files').then(response => {
-          console.log('response.data :' + response.data)
-          this.$set(this, 'files', response.data)
-        })
+        this.$set(this, 'files', response.data)
+      })
     },
     filesUploaded (files) {
       files.forEach(file => {
@@ -39,8 +38,8 @@ export default {
     }
   },
   mounted () {
-      this.fetchFiles()
-    }
+    this.fetchFiles()
+  }
 }
 </script>
 
