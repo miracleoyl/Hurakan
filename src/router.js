@@ -27,8 +27,8 @@ export default new Router({
       component: LoginPage
     },
     {
-      path: '/filemanager',
-      name: 'filemanager',
+      path: '/managefile',
+      name: 'managefile',
       component: FileManager
     }
   ]

@@ -7,6 +7,7 @@
         type="file"
         multiple
         v-bind:name="uploadName"
+        ref ="uploadfileref"
         @change="fileSelected"
       >
       <p v-show="uploadStarted">Uploading...</p>
@@ -73,6 +74,10 @@ export default {
         }
         this.updateFilesList(response.data)
         this.$set(this, 'formData', null)
+
+        // clear input
+        this.$refs.uploadfileref.value = ''
+        alert('file uploaded successfully')
       })
         .catch(() => {
           alert('Error occured')

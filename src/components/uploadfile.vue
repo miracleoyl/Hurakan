@@ -3,7 +3,7 @@
     <div>
       <FileDownloader :key="downloadKey" ref='downloader'></FileDownloader>
       <a v-bind:href="'/file/download/' + file.encodedName" v-on:click="downloadFile">{{ file.name }}</a>
-      <button>Delete</button>
+      <button @click="deleteFile(file)">Delete</button>
     </div>
   </div>
 </template>
@@ -29,6 +29,9 @@ export default {
       this.$nextTick().then(() => {
         this.$refs.downloader.downloadFile(url)
       })
+    },
+    deleteFile (file) {
+      this.$emit('delete-file', file)
     }
   }
 }

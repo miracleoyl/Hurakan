@@ -1,10 +1,10 @@
 <template>
    <div class="filemanager">
         <div>
-          <HEADER msg="this is from header.vue" v-bind:isShow ='false'/>
+          <HEADER :msg=this.title v-bind:isShow ='false'/>
         </div>
         <div>
-          <UploadsContainer v-on:files-uploaded="filesUploaded">
+          <UploadsContainer v-on:filesuploaded="filesUploaded">
           </UploadsContainer>
         </div>
         <div>
@@ -28,7 +28,8 @@ export default {
   name: 'user',
   data () {
     return {
-      files: []
+      files: [],
+      title: ''
     }
   },
   components: {
@@ -41,6 +42,10 @@ export default {
     filesUploaded (files) {
       this.$refs.filesList.filesUploaded(files)
     }
+  },
+  mounted () {
+    let user = this.$parent.loginuesr
+    this.title = 'Welcome ' + user + ' to the AI world'
   }
 }
 </script>

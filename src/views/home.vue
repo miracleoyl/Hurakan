@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div id="pageheader">
-      <HEADER msg="this is from header.vue" v-bind:isShow ='true'/>
+      <HEADER msg="Welcome to the AI world" v-bind:isShow ='true'/>
     </div>
     <swiper :options="swiperOption" class="swiperContent">
       <swiper-slide><img src="@/assets/images/1.jpg" class ='imgstyle'></swiper-slide>

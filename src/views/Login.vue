@@ -1,16 +1,14 @@
 <template>
-  <div id="app">
-    <div class="login">
-        <div id='pageheader'>
-            <HEADER msg="this is from header.vue" v-bind:isShow ='false'/>
-        </div>
-        <div>
-          <LOGIN/>
-        </div>
-        <div id='pagefooter'>
-            <FOOTER/>
-        </div>
-    </div>
+  <div class="login">
+      <div id='pageheader'>
+          <HEADER msg="Welcome to the AI world" v-bind:isShow ='false'/>
+      </div>
+      <div>
+        <LOGIN @authStatus='setAutorizationStatus' @loginuserlistner='setLoginuser'/>
+      </div>
+      <div id='pagefooter'>
+          <FOOTER/>
+      </div>
   </div>
 </template>
 
@@ -28,15 +26,19 @@ export default {
   data: function () {
     return {
     }
+  },
+  methods: {
+    setAutorizationStatus (isAuth) {
+      this.$emit('authenticatedlistner', isAuth)
+    },
+    setLoginuser (user) {
+      this.$emit('loginuser', user)
+    }
   }
 }
 </script>
 
 <style lang="scss">
-#app {
-  height: 100%;
-}
-
 .login{
     background-image: url('../assets/images/login_bg.jpg');
     background-size: cover;

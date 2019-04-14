@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view @authenticatedlistner = "setAuthorization" @userlistener = "setLoginUser"/>
   </div>
 </template>
 
@@ -8,12 +8,29 @@
 import axios from 'axios'
 export default {
   name: 'App',
+  data () {
+    return {
+      authenticated: false,
+      loginuser: ''
+    }
+  },
   methods: {
     logout: function (e) {
       axios.get('/api/logout')
         .then(() => {
           this.$router.push('/')
         })
+    },
+    setAuthorization (status) {
+      this.authenticated = status
+    },
+    setLoginUser (user) {
+      this.loginuser = user
+    }
+  },
+  mounted () {
+    if (this.authenticated === false) {
+      this.$router.replace({ name: 'home' })
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <iframe v-bind:src="source"></iframe>
+  <iframe v-bind:src="source" v-show="false"></iframe>
 </template>
 
 <script>

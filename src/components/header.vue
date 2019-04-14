@@ -6,6 +6,8 @@
       <router-link to="/login" tag='button' title='click to login' v-show= 'isShow' >
         <button @click="showButton">Login </button>
       </router-link>
+      <router-link v-if="authenticated" to="/login" v-on:click.native="logout()" replace>Log Out
+      </router-link>
     </div>
   </div>
 </template>
@@ -21,6 +23,10 @@ export default {
     isShow: {
       type: Boolean,
       default: true
+    },
+    authenticated: {
+      type: Boolean,
+      default: false
     }
   },
   data: function () {

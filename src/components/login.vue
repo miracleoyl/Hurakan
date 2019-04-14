@@ -16,15 +16,15 @@
                     <button type="submit" class="btn btn-primary btn-block" value="Login">Log in</button>
               </form>
          </div>
-         <div class="card-footer text-muted text-center">
+         <!-- <div class="card-footer text-muted text-center">
           New to company? <a class="signuplnk" href="/signup">Sign up</a>
-         </div>
+         </div> -->
      </div>
-    <div class="text-center py-2">
+    <!-- <div class="text-center py-2">
         <small>
           <a href="/reset/" class="text-muted">Forgot your password?</a>
         </small>
-      </div>
+      </div> -->
      </div>
 </div>
 </template>
@@ -35,12 +35,19 @@ import axios from 'axios'
 
 export default {
   name: 'login',
+  data () {
+    return {
+    }
+  },
   methods: {
-    login: (e) => {
+
+    // NOTE by Miracle: If use login: (e) => this.$emit won't work and will see not a function error:
+    // Reason: When you define your method with a fat arrow, you capture the lexical scope, which means this will be pointing to the containing scope (often window, or undefined), and not Vue.
+    login: function (e) {
       e.preventDefault()
       let email = e.target.elements.email.value
       let password = e.target.elements.password.value
-
+      this.$emit('loginuserlistner', email)
       let login = () => {
         let data = {
           email: email,
@@ -50,7 +57,8 @@ export default {
         axios.post('/api/login', data)
           .then((response) => {
             console.log('Logged in')
-            router.push('/dashboard')
+            this.$emit('authStatus', true)
+            router.push('/managefile')
           })
           .catch((errors) => {
             console.log('Cannot log in')
