@@ -1,10 +1,13 @@
 <template>
   <div>
     <h3>File List</h3>
-    <ul>
+    <table border="1" cellspacing="0">
+      <tr style="background:#F5F7F9;border-top-color: yellow;">
+        <th>Name</th><th>Action</th>
+      </tr>
       <UploadedFile v-for="file in files" v-bind:file.sync="file" v-bind:key="file._id" v-on:delete-file="deleteFile">
       </UploadedFile>
-    </ul>
+    </table>
   </div>
 </template>
 
@@ -52,4 +55,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  table{
+    border: solid 2px #F5F7F9;
+    width: 100%;
+  }
+  tr{
+    height: 45px;
+  }
 </style>
