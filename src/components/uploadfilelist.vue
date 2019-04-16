@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>File List</h1>
+    <h3>File List</h3>
     <ul>
       <UploadedFile v-for="file in files" v-bind:file.sync="file" v-bind:key="file._id" v-on:delete-file="deleteFile">
       </UploadedFile>

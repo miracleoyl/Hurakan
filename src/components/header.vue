@@ -1,12 +1,11 @@
 <template>
   <div class='el-header'>
     <img class="logoimg" alt="logo failed to load" src="@/assets/images/Brand.jpg" title="飓风人工智能"/>
-    <h1 class='compmsg'>{{msg}}</h1>
-    <div class ='loginbtn'>
-      <router-link to="/login" tag='button' title='click to login' v-show= 'isShow' >
+    <div class ='loginAction'>
+      <router-link to="/login" tag='button' title='click to login' class="loginbtn" v-show= 'isShow' >
         <button @click="showButton">Login </button>
       </router-link>
-      <router-link v-if="authenticated" to="/login" v-on:click.native="logout()" replace>Log Out
+      <router-link v-if="authenticated" to="/login" v-on:click.native="logout()" class="loginbtn" replace>Log Out
       </router-link>
     </div>
   </div>
@@ -48,28 +47,38 @@ export default {
 <style lang="scss">
 .el-header {
     color: white;
-    background-color:#15184c;
+    background:linear-gradient(-15deg, #000000 0%, #388c96 51%, #0f3e50 75%);
     display: inline-block;
-    padding-top: 0px;
-    padding-right: 5%;
-    padding-bottom: 0px;
-    padding-left: 0%;
+    padding: 0;
     width: 100%;
+    height: 50px;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    margin-left: -8px;
 }
 
 .logoimg{
     float:left;
-    height:120px;
-    padding-left: 2px;
+    padding:5px;
+    height: 40px;
+    width:40px;
+    margin-left: 15px;
 }
 
 .loginbtn{
     float: right;
-    margin-right: 20px;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: small;
+    cursor: pointer;
+    margin-right: 10px;
 }
-.compmsg {
-    text-align: center;
-    top: 50%;
+
+.loginAction{
+    display: flex;
+    justify-content: center;
+    align-items: Center;
+    float: right;
+    height: 50px;
 }
 </style>

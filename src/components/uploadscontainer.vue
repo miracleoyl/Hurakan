@@ -1,7 +1,7 @@
 <template>
   <div class="uploadcontainer">
-    <h1>Uploader</h1>
-    <div>
+    <h3>Uploader</h3>
+    <div style="display: inline-block;">
       <input
         v-show="!uploadStarted"
         type="file"
@@ -9,12 +9,11 @@
         v-bind:name="uploadName"
         ref ="uploadfileref"
         @change="fileSelected"
+        class="chooseButton"
       >
-      <p v-show="uploadStarted">Uploading...</p>
-    </div>
-    <div>
-      <button v-show="!uploadStarted" v-on:click="startUpload">Start Upload</button>
-      <button v-show="uploadStarted" v-on:click="cancelUpload">Cancel Upload</button>
+      <p v-show="uploadStarted" style="display: inline-block;margin: 0 20px 0 20px;">Uploading...</p>
+      <button v-show="!uploadStarted" v-on:click="startUpload" class="uploadButton">Start</button>
+      <button v-show="uploadStarted" v-on:click="cancelUpload" class="uploadButton">Cancel</button>
     </div>
   </div>
 </template>
@@ -94,4 +93,17 @@ export default {
 </script>
 
 <style scoped>
+  .uploadButton{
+    cursor: pointer;
+    float: right;
+    background: #0074C1;
+    color: white;
+    border-radius: 5px;
+    width: 4rem;
+    margin-left: 10px;
+  }
+
+  button.uploadButton:hover {
+    background: green;
+  }
 </style>

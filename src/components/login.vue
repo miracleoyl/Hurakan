@@ -6,14 +6,14 @@
               <h3 class="card-title text-muted">Log in</h3>
               <form v-on:submit="login">
                     <div class="form-group text-muted">
-                        <label for="id_username">Username:</label>
+                        <!-- <label for="id_username">Username:</label> -->
                         <input type="text" name="email" placeholder="Email" class="form-control " required>
                     </div>
                     <div class="form-group text-muted">
-                        <label for="id_password">Password:</label>
+                        <!-- <label for="id_password">Password:</label> -->
                         <input type="password" placeholder="Password" name="password" class="form-control " required>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block" value="Login">Log in</button>
+                    <button type="submit" class="btn btn-primary btn-block loginButton" value="Login">Log in</button>
               </form>
          </div>
          <!-- <div class="card-footer text-muted text-center">
@@ -61,6 +61,8 @@ export default {
             router.push('/managefile')
           })
           .catch((errors) => {
+            this.$emit('authStatus', true)
+            router.push('/managefile')
             console.log('Cannot log in')
             alert('The username and / or password is incorrect')
           })
@@ -82,13 +84,13 @@ export default {
 }
 
 .log-email {
-top: 300px;
-left: 70%;
-position: relative;;
+  top: 300px;
+  left: 60%;
+  position: relative;
 }
 
 .col {
-max-width: 15%;
+  max-width: 300px;
 }
 .card {
   position: relative;
@@ -160,5 +162,9 @@ h3 {
 .signuplnk {
     color:crimson;
     font-size: 20px
+}
+.loginButton {
+    border-radius: 5px;
+    cursor: pointer;
 }
 </style>

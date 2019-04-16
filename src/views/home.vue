@@ -64,17 +64,17 @@ export default {
   height: 100%;
 }
 .imgstyle{
-   display:inline-block;
-   max-height: 100%;
-   width: auto;
+  display:inline-block;
+  max-height: 100%;
+  width: auto;
 }
 .swiperContent {
-  margin-top: 124px;
+  margin-top: 60px;
   margin-bottom: 50px;
-  max-height: calc( 100% - 175px );
-  height: calc( 100% - 175px );
-  position: fixed;
-  top: 0px;
-  left: 0px;
+  max-height: calc( 100% - 175px);
+  height: calc( 100% - 175px);
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
 }
 </style>

@@ -40,6 +40,7 @@ export default {
 
 #app {
   height: 100%;
+  margin: -8px;
 }
 
 #pageheader {

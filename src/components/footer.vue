@@ -22,14 +22,17 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 .el-footer {
-    color: white;
-    background-color:#15184c;
+    color: #5F6262;
+    background-color:#EEF4F4;
     box-sizing: inherit;
     padding-top: 0px;
     padding-right: 5%;
     padding-bottom: 0px;
     padding-left: 0%;
     width: 100%;
-    display: inline-block
+    display: inline-block;
+    margin-left: -8px;
+    position: fixed;
+    bottom: 0px;
 }
 </style>

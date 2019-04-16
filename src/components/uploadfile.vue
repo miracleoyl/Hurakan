@@ -3,7 +3,7 @@
     <div>
       <FileDownloader :key="downloadKey" ref='downloader'></FileDownloader>
       <a v-bind:href="'/file/download/' + file.encodedName" v-on:click="downloadFile">{{ file.name }}</a>
-      <button @click="deleteFile(file)">Delete</button>
+      <button class="deleteButton" @click="deleteFile(file)">Delete</button>
     </div>
   </div>
 </template>
@@ -38,4 +38,12 @@ export default {
 </script>
 
 <style scoped>
+  .deleteButton{
+    cursor: pointer;
+    background: gray;
+    color: white;
+    border-radius: 5px;
+    width: 4rem;
+    margin-left: 10px;
+  }
 </style>
