@@ -35,4 +35,45 @@ Miracle:
 2.npm install --save axios   for ajax call
 
 
-  
+ to deploy frontend codes. 
+ prestep: add the followings to index.js (backend codes)
+ // 访问静态资源文件 这里是访问所有dist目录下的静态资源文件
+app.use(express.static(path.resolve(__dirname, '../dist')))
+
+after that
+ use nginx to deploy http server
+ 
+ 1.in nginx.conf file, under http part, add:
+ include /etc/nginx/conf.d/*.conf;  m
+ 2. add any config file end wiht .conf and configured like this: (pseudo codes)
+  server {
+    listen 80;
+    # 想要代理的域名
+    server_name hurakan-ai.com;
+
+   # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /etc/nginx/html; 
+    }
+    location / {      
+        root /etc/nginx/dist;
+        index  index.html index.htm;
+    }
+    location /api/ {
+        proxy_pass http://45.32.50.166:3000;
+    }
+    location /file/ {
+        proxy_pass http://45.32.50.166:3000;
+    }
+
+    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+    #
+    #location ~ \.php$ {
+    #    proxy_pass   http://127.0.0.1;
+    #}
+}
+
+ 
+ 
