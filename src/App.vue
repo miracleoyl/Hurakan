@@ -29,7 +29,7 @@ export default {
     }
   },
   mounted () {
-    if (this.authenticated === false) {
+    if (!this.authenticated) {
       this.$router.replace({ name: 'home' })
     }
   }

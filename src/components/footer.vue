@@ -22,8 +22,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 .el-footer {
-    color: #5F6262;
-    background-color:#EEF4F4;
+    color: white;
+    background:linear-gradient(-15deg, #000000 0%, #388c96 51%, #0f3e50 75%);
     box-sizing: inherit;
     padding-top: 0px;
     padding-right: 5%;

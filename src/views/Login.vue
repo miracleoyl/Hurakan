@@ -1,7 +1,7 @@
 <template>
   <div class="login">
       <div id='pageheader'>
-          <HEADER msg="Welcome to the AI world" v-bind:isShow ='false'/>
+          <HEADER msg="Welcome to Hurakan AI world" v-bind:isShow ='false'/>
       </div>
       <div>
         <LOGIN @authStatus='setAutorizationStatus' @loginuserlistner='setLoginuser'/>

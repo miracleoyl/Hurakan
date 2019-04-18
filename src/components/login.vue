@@ -58,11 +58,10 @@ export default {
           .then((response) => {
             console.log('Logged in')
             this.$emit('authStatus', true)
+            this.$root.isLogin = 'true'
             router.push('/managefile')
           })
           .catch((errors) => {
-            this.$emit('authStatus', true)
-            router.push('/managefile')
             console.log('Cannot log in')
             alert('The username and / or password is incorrect')
           })

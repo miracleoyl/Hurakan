@@ -1,7 +1,12 @@
 <template>
-  <!-- <FileDownloader :key="downloadKey" ref='downloader'></FileDownloader> -->
-  <tr><td><a v-bind:href="'/file/download/' + file.encodedName" v-on:click="downloadFile">{{ file.name }}</a></td>
-  <td class="actionAlign"><button class="deleteButton" @click="deleteFile(file)">Delete</button></td></tr>
+<tr>
+  <td>
+    <FileDownloader :key="downloadKey" ref='downloader'></FileDownloader>
+    <a v-bind:href="'/file/download/' + file.encodedName" v-on:click="downloadFile">{{ file.name }}
+    </a>
+  </td>
+  <td class="actionAlign"><button class="deleteButton" @click="deleteFile(file)">Delete</button></td>
+</tr>
 </template>
 
 <script>

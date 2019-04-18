@@ -44,8 +44,11 @@ export default {
     }
   },
   mounted () {
-    let user = this.$parent.loginuesr
-    this.title = 'Welcome ' + user + ' to the AI world'
+    // let user = this.$parent.loginuesr
+    this.title = 'Welcome Miracle to Hurakan AI world'
+    if (this.$root.isLogin === true) {
+      this.$emit('authenticatedlistner', this.$parent.authenticated)
+    }
   }
 }
 </script>

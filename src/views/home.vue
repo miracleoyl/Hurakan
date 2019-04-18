@@ -1,17 +1,19 @@
 <template>
   <div class="home">
     <div id="pageheader">
-      <HEADER msg="Welcome to the AI world" v-bind:isShow ='true'/>
+      <HEADER msg="Welcome to Hurakan AI world" v-bind:isShow ='true'/>
     </div>
     <swiper :options="swiperOption" class="swiperContent">
-      <swiper-slide><img src="@/assets/images/1.jpg" class ='imgstyle'></swiper-slide>
-      <swiper-slide><img src="@/assets/images/2.jpg" class ='imgstyle'></swiper-slide>
-      <swiper-slide><img src="@/assets/images/3.jpg" class ='imgstyle'></swiper-slide>
-      <swiper-slide><img src="@/assets/images/4.jpg" class ='imgstyle'></swiper-slide>
-      <swiper-slide><img src="@/assets/images/5.jpg" class ='imgstyle'></swiper-slide>
-      <swiper-slide><img src="@/assets/images/6.jpg" class ='imgstyle'></swiper-slide>
-      <swiper-slide><img src="@/assets/images/7.jpg" class ='imgstyle'></swiper-slide>
-      <swiper-slide><img src="@/assets/images/8.jpg" class ='imgstyle'></swiper-slide>
+      <swiper-slide class='alignCenter'><img src="@/assets/images/1.jpg" class ='imgstyle'></swiper-slide>
+      <swiper-slide class='alignCenter'><img src="@/assets/images/2.jpg" class ='imgstyle'></swiper-slide>
+      <swiper-slide class='alignCenter'><img src="@/assets/images/3.jpg" class ='imgstyle'></swiper-slide>
+      <swiper-slide class='alignCenter'><img src="@/assets/images/4.jpg" class ='imgstyle'></swiper-slide>
+      <swiper-slide class='alignCenter'><img src="@/assets/images/5.jpg" class ='imgstyle'></swiper-slide>
+      <swiper-slide class='alignCenter'><img src="@/assets/images/6.jpg" class ='imgstyle'></swiper-slide>
+      <swiper-slide class='alignCenter'><img src="@/assets/images/7.jpg" class ='imgstyle'></swiper-slide>
+      <swiper-slide class='alignCenter'><img src="@/assets/images/8.jpg" class ='imgstyle'></swiper-slide>
+      <swiper-slide class='alignCenter'><img src="@/assets/images/9.jpg" class ='imgstyle'></swiper-slide>
+      <swiper-slide class='alignCenter'><img src="@/assets/images/9.jpg" class ='imgstyle'></swiper-slide>
       <div class="swiper-scrollbar"></div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
@@ -65,8 +67,9 @@ export default {
 }
 .imgstyle{
   display:inline-block;
-  max-height: 100%;
-  width: auto;
+  height: 550px;
+  width: 1200px;
+  margin-top: 1.5%;
 }
 .swiperContent {
   margin-top: 60px;
@@ -75,6 +78,8 @@ export default {
   height: calc( 100% - 175px);
   margin-left: auto;
   margin-right: auto;
-  width: 500px;
+}
+.alignCenter {
+  text-align: center;
 }
 </style>

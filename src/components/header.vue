@@ -1,6 +1,9 @@
 <template>
   <div class='el-header'>
-    <img class="logoimg" alt="logo failed to load" src="@/assets/images/Brand.jpg" title="飓风人工智能"/>
+    <div>
+      <img class="logoimg" alt="logo failed to load" src="@/assets/images/Brand.jpg" title="飓风人工智能"/>
+      <span class='compmsg'>{{msg}}</span>
+    </div>
     <div class ='loginAction'>
       <router-link to="/login" tag='button' title='click to login' class="loginbtn" v-show= 'isShow' >
         <button @click="showButton">Login </button>
@@ -51,16 +54,16 @@ export default {
     display: inline-block;
     padding: 0;
     width: 100%;
-    height: 50px;
+    height: 60px;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     margin-left: -8px;
 }
 
 .logoimg{
-    float:left;
-    padding:5px;
-    height: 40px;
-    width:40px;
+    float: left;
+    padding: 5px;
+    height: 50px;
+    width: 80px;
     margin-left: 15px;
 }
 
@@ -80,5 +83,10 @@ export default {
     align-items: Center;
     float: right;
     height: 50px;
+}
+
+.compmsg {
+    position: absolute;
+    padding-top: 20px;
 }
 </style>
