@@ -46,7 +46,10 @@ after that
  1.in nginx.conf file, under http part, add:
  include /etc/nginx/conf.d/*.conf;  m
  2. add any config file end wiht .conf and configured like this: (pseudo codes)
-  server {
+ 
+ 
+###
+server {
     listen 80;
     # 想要代理的域名
     server_name hurakan-ai.com;
@@ -66,6 +69,6 @@ after that
         proxy_pass http://45.32.50.166:3000;
     }
 }
-
+####
  
  
