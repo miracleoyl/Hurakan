@@ -27,17 +27,15 @@ npm run e2e
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 
 Miracle: 
 1. vue init webpack frontend
 2.npm install --save axios   for ajax call
 
+to deploy frontend codes. 
+prestep: add the followings to index.js (backend codes)
 
- to deploy frontend codes. 
- prestep: add the followings to index.js (backend codes)
- // 访问静态资源文件 这里是访问所有dist目录下的静态资源文件
 app.use(express.static(path.resolve(__dirname, '../dist')))
 
 after that
