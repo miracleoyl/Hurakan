@@ -50,8 +50,6 @@ after that
     listen 80;
     # 想要代理的域名
     server_name hurakan-ai.com;
-
-   # redirect server error pages to the static page /50x.html
     #
     error_page   500 502 503 504  /50x.html;
     location = /50x.html {
@@ -67,12 +65,6 @@ after that
     location /file/ {
         proxy_pass http://45.32.50.166:3000;
     }
-
-    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
-    #
-    #location ~ \.php$ {
-    #    proxy_pass   http://127.0.0.1;
-    #}
 }
 
  
