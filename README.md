@@ -27,4 +27,24 @@ npm run e2e
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+Miracle: 
+1. vue init webpack frontend
+2.npm install --save axios   for ajax call
+
+to deploy frontend codes. 
+prestep: add the followings to index.js (backend codes)
+
+app.use(express.static(path.resolve(__dirname, '../dist')))
+
+after that
+ use nginx to deploy http server
+ 
+ 1.in nginx.conf file, under http part, add:
+ include /etc/nginx/conf.d/*.conf;  m
+ 2. add any config file end wiht .conf
+ 
+
+ 
+ 
